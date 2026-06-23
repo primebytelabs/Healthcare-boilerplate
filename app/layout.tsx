@@ -1,23 +1,20 @@
-import React from "react";
 import type { Metadata } from "next";
-// eslint-disable-next-line camelcase
-import { Plus_Jakarta_Sans } from "next/font/google";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/lib/providers";
 
-import { cn } from "@/lib/utils";
-
-const fontSans = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "CarePulse — Healthcare Management System",
-  description: `CarePulse is an healthcare management application that allows patients to schedule their
-                appointments, and also allows doctors to manage their appointments and patients. The application is
-                built with Next.js, Tailwind CSS, Shadcn UI, Appwrite, Twilio and Sentry.`,
+  title: "Vitalis — Modern Healthcare Platform",
+  description:
+    "A modern healthcare operations platform built for clarity, speed, and trust. Manage patients, appointments, and clinical workflows with ease.",
+  keywords: ["healthcare", "patient management", "appointments", "medical software"],
 };
 
 export default function RootLayout({
@@ -27,10 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("min-h-screen bg-dark-300 font-sans antialiased", fontSans.variable)}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
-        </ThemeProvider>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,4 +1,3 @@
-import { TableFilter } from "@/types";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -6,66 +5,81 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
+export const parseStringify = (value: unknown) => JSON.parse(JSON.stringify(value));
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
 
-// FORMAT DATE TIME
-export const formatDateTime = (dateString: Date | string) => {
-  const dateTimeOptions: Intl.DateTimeFormatOptions = {
-    // weekday: "short", // abbreviated weekday name (e.g., 'Mon')
-    month: "short", // abbreviated month name (e.g., 'Oct')
-    day: "numeric", // numeric day of the month (e.g., '25')
-    year: "numeric", // numeric year (e.g., '2023')
-    hour: "numeric", // numeric hour (e.g., '8')
-    minute: "numeric", // numeric minute (e.g., '30')
-    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
+export function formatDate(date: Date | string, options?: Intl.DateTimeFormatOptions) {
+  const defaultOptions: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
   };
 
-  const dateDayOptions: Intl.DateTimeFormatOptions = {
-    weekday: "short", // abbreviated weekday name (e.g., 'Mon')
-    year: "numeric", // numeric year (e.g., '2023')
-    month: "2-digit", // abbreviated month name (e.g., 'Oct')
-    day: "2-digit", // numeric day of the month (e.g., '25')
+  return new Date(date).toLocaleDateString("en-US", options || defaultOptions);
+}
+
+export function formatTime(date: Date | string, options?: Intl.DateTimeFormatOptions) {
+  const defaultOptions: Intl.DateTimeFormatOptions = {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
   };
 
-  const dateOptions: Intl.DateTimeFormatOptions = {
-    month: "short", // abbreviated month name (e.g., 'Oct')
-    year: "numeric", // numeric year (e.g., '2023')
-    day: "numeric", // numeric day of the month (e.g., '25')
+  return new Date(date).toLocaleTimeString("en-US", options || defaultOptions);
+}
+
+export function formatDateTime(date: Date | string, options?: Intl.DateTimeFormatOptions) {
+  const defaultOptions: Intl.DateTimeFormatOptions = {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
   };
 
-  const timeOptions: Intl.DateTimeFormatOptions = {
-    hour: "numeric", // numeric hour (e.g., '8')
-    minute: "numeric", // numeric minute (e.g., '30')
-    hour12: true, // use 12-hour clock (true) or 24-hour clock (false)
-  };
-
-  const formattedDateTime: string = new Date(dateString).toLocaleString("en-US", dateTimeOptions);
-
-  const formattedDateDay: string = new Date(dateString).toLocaleString("en-US", dateDayOptions);
-
-  const formattedDate: string = new Date(dateString).toLocaleString("en-US", dateOptions);
-
-  const formattedTime: string = new Date(dateString).toLocaleString("en-US", timeOptions);
+  const d = new Date(date);
 
   return {
-    dateTime: formattedDateTime,
-    dateDay: formattedDateDay,
-    dateOnly: formattedDate,
-    timeOnly: formattedTime,
+    dateTime: d.toLocaleDateString("en-US", options || defaultOptions),
+    dateDay: d.toLocaleDateString("en-US", {
+      weekday: "short",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }),
+    dateOnly: d.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }),
+    timeOnly: d.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    }),
+    relative: getRelativeTime(d),
   };
-};
+}
 
-export const TableFilterNames: Record<TableFilter, string> = {
-  primaryPhysician: "Doctor",
-  status: "Status",
-  patient: "Patient",
-  schedule: "Appointment",
-};
+function getRelativeTime(date: Date): string {
+  const now = new Date();
+  const diff = date.getTime() - now.getTime();
+  const absDiff = Math.abs(diff);
+  const isPast = diff < 0;
 
-export const formatTableFilter = (filter: TableFilter | string) =>
-  TableFilterNames[filter as keyof typeof TableFilterNames] || "unknown";
+  const minutes = Math.floor(absDiff / 60000);
+  const hours = Math.floor(absDiff / 3600000);
+  const days = Math.floor(absDiff / 86400000);
+
+  if (minutes < 1) return "Just now";
+  if (minutes < 60) return isPast ? `${minutes}m ago` : `in ${minutes}m`;
+  if (hours < 24) return isPast ? `${hours}h ago` : `in ${hours}h`;
+  if (days < 7) return isPast ? `${days}d ago` : `in ${days}d`;
+
+  return formatDate(date);
+}
 
 export function encryptKey(passkey: string) {
   return btoa(passkey);
@@ -73,4 +87,40 @@ export function encryptKey(passkey: string) {
 
 export function decryptKey(passkey: string) {
   return atob(passkey);
+}
+
+export function getInitials(name: string): string {
+  return name
+    .split(" ")
+    .map(n => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+}
+
+export function generateId(): string {
+  return Math.random().toString(36).substring(2, 9);
+}
+
+export function debounce<T extends (...args: unknown[]) => unknown>(
+  fn: T,
+  delay: number
+): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout>;
+  return (...args: Parameters<T>) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn(...args), delay);
+  };
+}
+
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
+
+export function range(start: number, end: number): number[] {
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+}
+
+export function pluralize(count: number, singular: string, plural?: string): string {
+  return count === 1 ? singular : plural || `${singular}s`;
 }

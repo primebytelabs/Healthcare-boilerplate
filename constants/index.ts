@@ -1,4 +1,5 @@
 import { Gender } from "@/types";
+import { ActivityIcon, CalendarIcon, CheckCircleIcon, ClockIcon, ShieldIcon, UsersIcon } from "@/components/features/landing/icons";
 
 export const GenderOptions = ["Male", "Female", "Other"];
 
@@ -86,3 +87,36 @@ export const StatusIcon = {
   pending: "/assets/icons/pending.svg",
   cancelled: "/assets/icons/cancelled.svg",
 };
+
+export const features = [
+    {
+      icon: CalendarIcon,
+      title: "Smart Scheduling",
+      description: "Intelligent appointment booking with real-time availability, automated reminders, and calendar sync.",
+    },
+    {
+      icon: UsersIcon,
+      title: "Patient Management",
+      description: "Comprehensive patient profiles with medical history, documents, and communication tools.",
+    },
+    {
+      icon: ShieldIcon,
+      title: "Secure & Compliant",
+      description: "Enterprise-grade security with HIPAA compliance, audit logs, and role-based access control.",
+    },
+    {
+      icon: ActivityIcon,
+      title: "Analytics & Insights",
+      description: "Real-time dashboards and reports to understand your practice performance and patient outcomes.",
+    },
+    {
+      icon: ClockIcon,
+      title: "Wait Time Optimization",
+      description: "Reduce patient wait times with intelligent scheduling and automated check-in workflows.",
+    },
+    {
+      icon: CheckCircleIcon,
+      title: "Automated Workflows",
+      description: "Streamline administrative tasks with automated appointment reminders, follow-ups, and forms.",
+    },
+  ];

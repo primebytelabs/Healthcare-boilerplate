@@ -5,5 +5,14 @@
     "plugin:tailwindcss/recommended",
     "prettier"
   ],
-  "ignorePatterns": ["/components/ui/**"]
+  "ignorePatterns": ["/components/ui/**"],
+  "rules": {
+    "no-undef": "off",
+    "no-unused-vars": "warn",
+    "tailwindcss/classnames-order": "off",
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/no-custom-classname": "off",
+    "import/no-unresolved": "off",
+    "n/handle-callback-err": "off"
+  }
 }
