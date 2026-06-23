@@ -132,7 +132,7 @@ export default function RegisterPage() {
             id="terms"
             type="checkbox"
             required
-            className="w-4 h-4 mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 flex-shrink-0"
+            className="w-4 h-4 mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500 shrink-0"
           />
           <label htmlFor="terms" className="text-sm text-slate-600 leading-snug">
             I agree to Vitalis&apos;s{" "}

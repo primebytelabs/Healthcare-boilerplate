@@ -114,7 +114,7 @@ export function HowItWorks() {
               )}
 
               {/* Icon column */}
-              <div className="flex flex-col items-center flex-shrink-0">
+              <div className="flex flex-col items-center shrink-0">
                 <div
                   className={`w-12 h-12 rounded-2xl ${step.bg} ${step.border} border flex items-center justify-center shadow-sm`}
                 >

@@ -47,7 +47,7 @@ function ProfileTab() {
       <Card>
         <CardHeader><CardTitle>Profile Photo</CardTitle></CardHeader>
         <CardContent className="flex items-center gap-6">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white text-2xl font-bold shrink-0">
             SC
           </div>
           <div>
@@ -234,7 +234,7 @@ function SecurityTab() {
           </div>
           {twoFA && (
             <div className="flex items-center gap-2 p-3 bg-emerald-50 border border-emerald-100 rounded-xl text-xs text-emerald-700">
-              <CheckCircle2 className="w-4 h-4 flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 shrink-0" />
               Two-factor authentication is active. Your account is secured.
             </div>
           )}
@@ -518,7 +518,7 @@ export default function SettingsPage() {
 
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Sidebar tabs */}
-        <div className="w-full lg:w-52 flex-shrink-0">
+        <div className="w-full lg:w-52 shrink-0">
           <nav className="flex flex-row lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-1 lg:pb-0">
             {tabs.map((tab) => (
               <button
@@ -530,7 +530,7 @@ export default function SettingsPage() {
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
-                <tab.icon className="w-4 h-4 flex-shrink-0" />
+                <tab.icon className="w-4 h-4 shrink-0" />
                 {tab.label}
               </button>
             ))}

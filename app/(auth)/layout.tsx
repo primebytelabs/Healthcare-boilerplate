@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
   return (
     <div className="min-h-screen flex">
       {/* Left panel — brand */}
-      <div className="hidden lg:flex lg:w-[480px] xl:w-[560px] flex-col bg-slate-900 relative overflow-hidden flex-shrink-0">
+      <div className="hidden lg:flex lg:w-[480px] xl:w-[560px] flex-col bg-slate-900 relative overflow-hidden shrink-0">
         {/* Gradient orbs */}
         <div className="absolute top-0 left-0 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl" />
@@ -65,7 +65,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
                 "Seamless EMR integrations",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
                     <svg className="w-2.5 h-2.5 text-emerald-400" fill="currentColor" viewBox="0 0 12 12">
                       <path d="M10 3L5 8.5 2 5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     </svg>

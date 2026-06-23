@@ -75,7 +75,7 @@ function DoctorPortalMockup() {
             ].map((a, i) => (
               <div key={i} className="flex items-center gap-2 py-1.5 border-b border-slate-700/50 last:border-0">
                 <span className="text-[8px] text-slate-500 w-8">{a.t}</span>
-                <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center text-[7px] text-blue-400 font-bold flex-shrink-0">
+                <div className="w-4 h-4 rounded-full bg-blue-500/20 flex items-center justify-center text-[7px] text-blue-400 font-bold shrink-0">
                   {a.n.charAt(0)}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -138,7 +138,7 @@ function PatientAppMockup() {
             { e: "Appointment confirmed", t: "2 days ago", c: "bg-cyan-400" },
           ].map((a, i) => (
             <div key={i} className="flex items-center gap-2">
-              <div className={`w-1.5 h-1.5 rounded-full ${a.c} flex-shrink-0`} />
+              <div className={`w-1.5 h-1.5 rounded-full ${a.c} shrink-0`} />
               <p className="text-[9px] text-slate-600 flex-1">{a.e}</p>
               <p className="text-[8px] text-slate-400">{a.t}</p>
             </div>

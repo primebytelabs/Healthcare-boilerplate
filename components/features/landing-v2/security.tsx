@@ -65,8 +65,8 @@ export function Security() {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-              Security isn't a feature.{" "}
-              <span className="text-gradient-blue">It's our foundation.</span>
+              Security isn&apos;t a feature.{" "}
+              <span className="text-gradient-blue">It&apos;s our foundation.</span>
             </h2>
             <p className="text-lg text-slate-500 leading-relaxed mb-10">
               Healthcare data is among the most sensitive in the world. We treat security
@@ -77,7 +77,7 @@ export function Security() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {securityFeatures.map((f) => (
                 <div key={f.title} className="flex gap-4">
-                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
                     <f.icon className="w-4 h-4 text-emerald-600" />
                   </div>
                   <div>

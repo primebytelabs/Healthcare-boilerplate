@@ -119,7 +119,7 @@ export function Testimonials() {
             <span className="text-gradient-blue">healthcare leaders</span>
           </h2>
           <p className="mt-5 text-lg text-slate-500 leading-relaxed">
-            From solo practitioners to enterprise health systems — here's what the people
+            From solo practitioners to enterprise health systems — here&apos;s what the people
             using Vitalis every day have to say.
           </p>
         </motion.div>
@@ -163,7 +163,7 @@ export function Testimonials() {
               <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div
-                    className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-xs font-bold flex-shrink-0`}
+                    className={`w-9 h-9 rounded-full bg-gradient-to-br ${t.gradient} flex items-center justify-center text-white text-xs font-bold shrink-0`}
                   >
                     {t.avatar}
                   </div>

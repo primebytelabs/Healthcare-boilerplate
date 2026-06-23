@@ -22,7 +22,7 @@ function DashboardMockup() {
             <div className="w-3 h-3 rounded-full bg-emerald-400" />
           </div>
           <div className="flex-1 bg-white rounded-md px-3 py-1 text-xs text-slate-400 border border-slate-200 flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
             app.vitalis.health/dashboard
           </div>
           <div className="flex gap-1.5">
@@ -34,9 +34,9 @@ function DashboardMockup() {
 
         <div className="flex" style={{ height: "360px" }}>
           {/* Sidebar */}
-          <div className="w-44 bg-slate-900 p-3 flex flex-col gap-1 flex-shrink-0">
+          <div className="w-44 bg-slate-900 p-3 flex flex-col gap-1 shrink-0">
             <div className="flex items-center gap-2 px-2 py-2.5 mb-1">
-              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shrink-0">
                 <span className="text-white text-[10px] font-bold">V</span>
               </div>
               <span className="text-white text-sm font-semibold">Vitalis</span>
@@ -60,7 +60,7 @@ function DashboardMockup() {
                 }`}
               >
                 <div
-                  className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                  className={`w-1.5 h-1.5 rounded-full shrink-0 ${
                     item.active ? "bg-white" : "bg-slate-600"
                   }`}
                 />
@@ -76,13 +76,13 @@ function DashboardMockup() {
                 key={item}
                 className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-[11px] text-slate-400 cursor-pointer"
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-slate-600 flex-shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
                 {item}
               </div>
             ))}
 
             <div className="mt-auto px-2.5 py-1.5 flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0">
+              <div className="w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
                 <span className="text-white text-[8px] font-bold">SC</span>
               </div>
               <div>
@@ -145,16 +145,16 @@ function DashboardMockup() {
                   key={i}
                   className="flex items-center gap-2 py-1.5 border-b border-slate-50 last:border-0"
                 >
-                  <div className={`w-1.5 h-1.5 rounded-full ${appt.dot} flex-shrink-0`} />
-                  <span className="text-[8px] text-slate-400 w-7 flex-shrink-0">{appt.time}</span>
-                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center text-[7px] font-bold text-blue-700 flex-shrink-0">
+                  <div className={`w-1.5 h-1.5 rounded-full ${appt.dot} shrink-0`} />
+                  <span className="text-[8px] text-slate-400 w-7 shrink-0">{appt.time}</span>
+                  <div className="w-5 h-5 rounded-full bg-gradient-to-br from-blue-100 to-cyan-100 flex items-center justify-center text-[7px] font-bold text-blue-700 shrink-0">
                     {appt.name.charAt(0)}
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[9px] font-semibold text-slate-700 truncate">{appt.name}</p>
                   </div>
                   <span
-                    className={`text-[7px] px-1.5 py-0.5 rounded-full flex-shrink-0 ${
+                    className={`text-[7px] px-1.5 py-0.5 rounded-full shrink-0 ${
                       appt.status === "confirmed"
                         ? "bg-emerald-50 text-emerald-700"
                         : "bg-amber-50 text-amber-700"
@@ -206,7 +206,7 @@ function DashboardMockup() {
         className="absolute -top-5 -right-8 bg-white rounded-2xl shadow-xl border border-slate-100 p-3.5 w-48 hidden lg:block"
       >
         <div className="flex items-center gap-2.5 mb-2">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shrink-0">
             <TrendingUp className="w-4 h-4 text-white" />
           </div>
           <div>
@@ -237,7 +237,7 @@ function DashboardMockup() {
       >
         <div className="flex items-center gap-2 mb-2">
           <div className="relative">
-            <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-8 h-8 rounded-xl bg-blue-600 flex items-center justify-center shrink-0">
               <Zap className="w-4 h-4 text-white" />
             </div>
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
@@ -250,7 +250,7 @@ function DashboardMockup() {
         <div className="space-y-1">
           {["Pattern Detected", "Risk Level: Low", "99.9% Accurate"].map((item) => (
             <div key={item} className="flex items-center gap-1.5">
-              <div className="w-1 h-1 rounded-full bg-emerald-400 flex-shrink-0" />
+              <div className="w-1 h-1 rounded-full bg-emerald-400 shrink-0" />
               <p className="text-[8px] text-slate-500">{item}</p>
             </div>
           ))}

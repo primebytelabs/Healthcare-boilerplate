@@ -79,7 +79,7 @@ export function Footer() {
                   placeholder="your@email.com"
                   className="flex-1 bg-slate-800 border border-slate-700 text-slate-300 text-sm rounded-xl px-4 py-2.5 placeholder:text-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
                 />
-                <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors flex-shrink-0">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors shrink-0">
                   Join
                 </button>
               </div>

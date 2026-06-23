@@ -65,7 +65,7 @@ function AccordionItem({
           {faq.question}
         </span>
         <div
-          className={`flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
+          className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center transition-colors duration-200 ${
             isOpen ? "bg-blue-700 text-white" : "bg-slate-100 text-slate-500"
           }`}
         >

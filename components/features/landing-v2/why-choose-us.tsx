@@ -121,7 +121,7 @@ export function WhyChooseUs() {
             <span className="text-gradient-blue">healthcare deserves</span>
           </h2>
           <p className="mt-5 text-lg text-slate-500 leading-relaxed">
-            We've rethought every layer — from infrastructure to UX — so your team spends
+            We&apos;ve rethought every layer — from infrastructure to UX — so your team spends
             less time on software and more time on care.
           </p>
         </motion.div>

@@ -88,7 +88,7 @@ export function FinalCTA() {
             <div className="flex flex-wrap items-center justify-center gap-6">
               {highlights.map((h) => (
                 <div key={h} className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
                   <span className="text-sm text-blue-100/80">{h}</span>
                 </div>
               ))}

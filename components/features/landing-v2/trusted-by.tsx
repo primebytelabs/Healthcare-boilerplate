@@ -19,7 +19,7 @@ const logos = [
 
 function LogoItem({ name }: { name: string }) {
   return (
-    <div className="flex-shrink-0 flex items-center justify-center px-10">
+    <div className="shrink-0 flex items-center justify-center px-10">
       <span className="text-slate-400 font-semibold text-sm tracking-wide whitespace-nowrap hover:text-slate-600 transition-colors cursor-default">
         {name}
       </span>
