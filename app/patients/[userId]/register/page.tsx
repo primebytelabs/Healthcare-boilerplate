@@ -1,15 +1,6 @@
-import { getUser } from "@/appwrite/actions/patient.action";
-import { SearchParamProps } from "@/types";
-import * as Sentry from "@sentry/nextjs";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
-export default async function Register({ params: { userId } }: SearchParamProps) {
-  const user = await getUser(userId);
-
-  Sentry.metrics.set("user_view_register", user.name);
-
+export default function Register({ params }: { params: { userId: string } }) {
   return (
     <div className="min-h-screen bg-muted/30">
       <div className="mx-auto max-w-3xl px-4 py-12">
@@ -20,9 +11,7 @@ export default async function Register({ params: { userId } }: SearchParamProps)
         </div>
         <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
           <div className="mb-8">
-            <h1 className="text-heading-lg font-semibold text-foreground">
-              Welcome, {user.name}
-            </h1>
+            <h1 className="text-heading-lg font-semibold text-foreground">Patient Registration</h1>
             <p className="mt-1 text-muted-foreground">
               Let us know more about yourself to get started.
             </p>
@@ -38,21 +27,23 @@ export default async function Register({ params: { userId } }: SearchParamProps)
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-foreground">Full Name</label>
                   <input
-                    defaultValue={user.name}
+                    placeholder="John Doe"
                     className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary transition-all"
                   />
                 </div>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-foreground">Email</label>
                   <input
-                    defaultValue={user.email}
+                    type="email"
+                    placeholder="john@example.com"
                     className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary transition-all"
                   />
                 </div>
                 <div>
                   <label className="mb-1.5 block text-sm font-medium text-foreground">Phone</label>
                   <input
-                    defaultValue={user.phone}
+                    type="tel"
+                    placeholder="+1 (555) 000-0000"
                     className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary transition-all"
                   />
                 </div>
@@ -136,7 +127,11 @@ export default async function Register({ params: { userId } }: SearchParamProps)
                 <h2 className="text-heading-sm font-semibold text-foreground">Consent</h2>
               </div>
 
-              {["I consent to treatment", "I consent to disclosure of medical information", "I acknowledge the privacy policy"].map((label) => (
+              {[
+                "I consent to treatment",
+                "I consent to disclosure of medical information",
+                "I acknowledge the privacy policy",
+              ].map((label) => (
                 <label key={label} className="flex items-start gap-3">
                   <input type="checkbox" className="mt-0.5 h-4 w-4 rounded border-border text-primary focus:ring-primary/30" />
                   <span className="text-sm text-foreground">{label}</span>

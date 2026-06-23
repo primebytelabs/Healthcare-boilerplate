@@ -1,15 +1,6 @@
-import { getPatient } from "@/appwrite/actions/patient.action";
-import { SearchParamProps } from "@/types";
-import * as Sentry from "@sentry/nextjs";
 import Link from "next/link";
 
-export const dynamic = "force-dynamic";
-
-export default async function NewAppointment({ params: { userId } }: SearchParamProps) {
-  const patient = await getPatient(userId);
-
-  Sentry.metrics.set("user_view_new_appointment", patient.name);
-
+export default function NewAppointment({ params }: { params: { userId: string } }) {
   return (
     <div className="min-h-screen bg-muted/30">
       <div className="mx-auto max-w-2xl px-4 py-12">
@@ -21,9 +12,7 @@ export default async function NewAppointment({ params: { userId } }: SearchParam
         <div className="rounded-xl border border-border bg-card p-8 shadow-sm">
           <div className="mb-8">
             <h1 className="text-heading-lg font-semibold text-foreground">New Appointment</h1>
-            <p className="mt-1 text-muted-foreground">
-              Schedule a new appointment for {patient.name}
-            </p>
+            <p className="mt-1 text-muted-foreground">Schedule a new appointment</p>
           </div>
 
           <form className="space-y-6">
@@ -31,20 +20,17 @@ export default async function NewAppointment({ params: { userId } }: SearchParam
               <label className="mb-1.5 block text-sm font-medium text-foreground">Doctor</label>
               <select className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary transition-all">
                 <option>Select a doctor</option>
-                <option>Dr. John Green</option>
-                <option>Dr. Leila Cameron</option>
-                <option>Dr. David Livingston</option>
-                <option>Dr. Evan Peter</option>
-                <option>Dr. Jane Powell</option>
-                <option>Dr. Alex Ramirez</option>
-                <option>Dr. Jasmine Lee</option>
-                <option>Dr. Alyana Cruz</option>
-                <option>Dr. Hardik Sharma</option>
+                <option>Dr. Sarah Chen</option>
+                <option>Dr. James Wilson</option>
+                <option>Dr. Emily Lee</option>
+                <option>Dr. Michael Torres</option>
+                <option>Dr. Lisa Park</option>
+                <option>Dr. David Kumar</option>
               </select>
             </div>
 
             <div>
-              <label className="mb-1.5 block text-sm font-medium text-foreground">Date & Time</label>
+              <label className="mb-1.5 block text-sm font-medium text-foreground">Date &amp; Time</label>
               <input
                 type="datetime-local"
                 className="flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary/30 focus:border-primary transition-all"
