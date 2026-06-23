@@ -115,7 +115,7 @@ export function FAQ() {
             Questions & Answers
           </h2>
           <p className="mt-5 text-lg text-slate-500 leading-relaxed max-w-2xl mx-auto">
-            Everything you need to know about the platform. Can't find your answer?{" "}
+            Everything you need to know about the platform. Can&apos;t find your answer?{" "}
             <a href="#contact" className="text-blue-700 font-semibold hover:underline">
               Talk to our team.
             </a>

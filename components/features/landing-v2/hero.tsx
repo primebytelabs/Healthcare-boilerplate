@@ -4,7 +4,7 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Play, TrendingUp, Users, Zap, Star } from "lucide-react";
+import { ArrowRight, Play, TrendingUp, Zap } from "lucide-react";
 
 function DashboardMockup() {
   return (

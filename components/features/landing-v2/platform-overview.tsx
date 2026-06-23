@@ -52,7 +52,7 @@ function DoctorPortalMockup() {
         </div>
         {/* Main */}
         <div className="flex-1 bg-slate-900 p-4 overflow-hidden">
-          <p className="text-slate-200 text-xs font-bold mb-1">Today's Overview</p>
+          <p className="text-slate-200 text-xs font-bold mb-1">Today&apos;s Overview</p>
           <p className="text-slate-500 text-[9px] mb-3">Tuesday, March 11 · 9 consultations pending</p>
           <div className="grid grid-cols-3 gap-2 mb-3">
             {[
